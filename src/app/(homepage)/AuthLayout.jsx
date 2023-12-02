@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
 function AuthLayout() {
   const [tab, setTab] = useState(1);
@@ -30,6 +31,7 @@ function AuthLayout() {
 
       <div className="bg-primary text-white border-l border-b border-r">
         {tab === 1 && <LoginForm />}
+        {tab === 2 && <RegisterForm />}
       </div>
     </div>
   );

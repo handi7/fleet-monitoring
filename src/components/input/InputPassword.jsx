@@ -5,7 +5,7 @@ import InputLabel from "./InputLabel";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
 const InputPassword = forwardRef(function InputPassword(
-  { id, label, required = false, ...rest },
+  { id, label, required = false, error, ...rest },
   ref
 ) {
   const [show, setShow] = useState(false);
@@ -29,6 +29,7 @@ const InputPassword = forwardRef(function InputPassword(
           {...rest}
         />
       </div>
+      <span className="text-xs text-red-700">{error}</span>
     </div>
   );
 });

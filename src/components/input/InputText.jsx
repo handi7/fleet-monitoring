@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 import InputLabel from "./InputLabel";
 
 const InputText = forwardRef(function InputText(
-  { id, label, required = false, ...rest },
+  { id, label, required = false, error, ...rest },
   ref
 ) {
   return (
@@ -17,6 +17,7 @@ const InputText = forwardRef(function InputText(
         className="text-xs text-primary border rounded-md outline-none px-3 py-2"
         {...rest}
       />
+      <span className="text-xs text-red-700">{error}</span>
     </div>
   );
 });
