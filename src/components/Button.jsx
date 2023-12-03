@@ -4,6 +4,7 @@ function Button({
   disabled = false,
   type = "button",
   color = "primary",
+  onClick = null,
   children,
 }) {
   const getClass = () => {
@@ -16,7 +17,12 @@ function Button({
   };
 
   return (
-    <button disabled={disabled} type={type} className={getClass()}>
+    <button
+      disabled={disabled}
+      type={type}
+      className={getClass()}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

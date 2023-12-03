@@ -14,7 +14,9 @@ const InputText = forwardRef(function InputText(
         ref={ref}
         id={id}
         type="text"
-        className="text-xs text-primary border rounded-md outline-none px-3 py-2"
+        className={`text-xs text-primary border rounded-md outline-none px-3 py-2 ${
+          error ? "border-red-600" : ""
+        }`}
         {...rest}
       />
       <span className="text-xs text-red-700">{error}</span>

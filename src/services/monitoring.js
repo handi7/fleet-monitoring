@@ -17,3 +17,12 @@ export const getMonitoringGroup = async (id) => {
     return Promise.reject(error);
   }
 };
+
+export const createMonitoringGroup = async (data) => {
+  try {
+    const res = await Axios.post("/vessel-groups", data);
+    return Promise.resolve(res);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};

@@ -4,8 +4,13 @@ import { useEffect, useState } from "react";
 import { getMonitoringGroups } from "../../../services/monitoring";
 import GroupDetail from "./GroupDetail";
 import { date } from "../../../helpers/date";
+import InputSearch from "../../../components/input/InputSearch";
+import { useRouter } from "next/navigation";
+import { AiOutlinePlus } from "react-icons/ai";
 
 export default function Home() {
+  const router = useRouter();
+
   const [data, setData] = useState(null);
   const [selectedGroup, setSelectedGroup] = useState(null);
   const [isLoading, setLoading] = useState(true);
@@ -30,8 +35,15 @@ export default function Home() {
   return (
     <div className="w-full h-full flex">
       <div className="flex-initial w-72 h-full min-w-[288px] bg-white border-r shadow-lg p-5 space-y-3">
-        <div className="flex justify-between items-center"></div>
-        <h1 className="text-lg font-bold">Fleet Monitoring</h1>
+        <div className="flex justify-between items-center">
+          <h1 className="text-lg font-bold">Fleet Monitoring</h1>
+          <button onClick={() => router.push("/fleet-monitoring/create")}>
+            <AiOutlinePlus />
+          </button>
+        </div>
+        <div>
+          <InputSearch />
+        </div>
         {!isLoading &&
           data?.data?.map((group, i) => {
             const selected = selectedGroup?.id === group?.id;
@@ -41,6 +53,7 @@ export default function Home() {
                 className={`text-sm border rounded-lg p-3 cursor-pointer hover:bg-primary/20 duration-300 space-y-2 ${
                   selected ? "bg-primary/20" : ""
                 }`}
+                onClick={() => setSelectedGroup(group)}
               >
                 <div className="flex flex-col">
                   <span className="text-gray-600">Group Name</span>

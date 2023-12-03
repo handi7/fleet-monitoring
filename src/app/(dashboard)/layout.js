@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import "../globals.css";
 import Navbar from "./Navbar";
+import Providers from "../../store/Providers";
+import MapsLoader from "./MapsLoader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,12 +15,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="w-screen h-screen flex">
-          <div className="flex-initial w-14 h-full min-w-[56px] bg-slate-800">
-            <Navbar />
+        <Providers>
+          <MapsLoader />
+          <div className="w-screen h-screen flex">
+            <div className="flex-initial w-14 h-full min-w-[56px] bg-slate-800">
+              <Navbar />
+            </div>
+            <div className="flex-auto bg-gray-100 text-black overflow-auto">
+              {children}
+            </div>
           </div>
-          <div className="flex-auto bg-gray-100 text-black">{children}</div>
-        </div>
+        </Providers>
       </body>
     </html>
   );

@@ -3,11 +3,12 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import Spinner from "../../../components/Spinner";
-import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 import { getMonitoringGroup } from "../../../services/monitoring";
 import InputSearch from "../../../components/input/InputSearch";
 import DataTable from "react-data-table-component";
 import { date } from "../../../helpers/date";
+import { useSelector } from "react-redux";
 
 function GroupDetail({ id, loading }) {
   const [group, setGroup] = useState(null);
@@ -16,12 +17,7 @@ function GroupDetail({ id, loading }) {
   const [filteredVessels, setFilteredVessels] = useState(null);
   const [drawer, setDrawer] = useState({ open: false, data: null });
 
-  console.log(group);
-
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GMAP_KEY,
-  });
+  const mapState = useSelector((state) => state.mapSlice);
 
   const getDetail = async (groupId) => {
     try {
@@ -122,7 +118,7 @@ function GroupDetail({ id, loading }) {
         <span className="text-xs font-semibold">{date(group?.created_at)}</span>
       </div>
       <div className="relative w-full aspect-[2/1] min-h-[320px] bg-white rounded-lg shadow-lg overflow-hidden">
-        {isLoaded && (
+        {mapState?.isLoaded && (
           <GoogleMap
             id="google-map-script"
             options={{
@@ -176,7 +172,7 @@ function GroupDetail({ id, loading }) {
               customStyles={{
                 headRow: { style: { backgroundColor: "#f3f4f6" } },
               }}
-              onRowClicked={(data) => console.log(data)}
+              onRowClicked={(data) => setSelectedVessel(data)}
               conditionalRowStyles={[
                 {
                   when: (row) => row?.id === selectedVesel?.id,
