@@ -14,10 +14,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div className="w-screen h-screen flex">
-          <div className="flex-initial w-14 h-full bg-slate-800">
+          <div className="flex-initial w-14 h-full min-w-[56px] bg-slate-800">
             <Navbar />
           </div>
-          <div className="flex-auto">{children}</div>
+          <div className="flex-auto bg-gray-100 text-black">{children}</div>
         </div>
       </body>
     </html>

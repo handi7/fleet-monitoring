@@ -7,6 +7,7 @@ export const topNav = [
     id: 1,
     label: "Monitoring",
     icon: <FaRegMap size={20} />,
+    path: "/fleet-monitoring",
   },
   {
     id: 1,
