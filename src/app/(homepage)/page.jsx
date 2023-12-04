@@ -4,7 +4,7 @@ import React from "react";
 function HomePage() {
   return (
     <div className="h-full flex justify-center bg-gray-100 text-primary">
-      <div className="w-[1200px] max-w-[1200px] py-10">
+      <div className="w-[1200px] max-w-[1200px] py-10 px-10 xl:px-5">
         <div className="w-full aspect-[2/1] relative rounded-xl overflow-hidden">
           <Image
             src="/images/homebg.jpg"

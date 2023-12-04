@@ -9,7 +9,7 @@ function NavBar() {
 
   return (
     <div className="flex-initial w-full h-14 flex justify-center bg-white text-primary border-b">
-      <div className="w-[1200px] h-full flex justify-between items-center">
+      <div className="w-[1200px] h-full flex justify-between items-center px-5">
         <div className="text-xl font-bold">Fleet Monitoring</div>
         <div className="relative">
           <button
