@@ -35,7 +35,6 @@ function CreateMonitoring() {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
       await createMonitoringGroup(data);
       toast.success("Group created successfully");
       router.back();

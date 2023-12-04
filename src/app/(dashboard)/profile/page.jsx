@@ -7,7 +7,6 @@ import { FaRegCircleUser } from "react-icons/fa6";
 
 function Profile() {
   const user = useSelector((state) => state.userSlice);
-  console.log(user);
   return (
     <div className="w-full h-full flex justify-center p-10">
       <div className="w-[720px] h-fit bg-white rounded-lg shadow-lg p-5">
