@@ -10,7 +10,7 @@ export const topNav = [
     path: "/fleet-monitoring",
   },
   {
-    id: 1,
+    id: 2,
     label: "Label",
     icon: <PiPackageLight size={20} />,
   },
@@ -23,12 +23,13 @@ export const bottomNav = [
     icon: <FiInfo size={20} />,
   },
   {
-    id: 1,
+    id: 2,
     label: "Profile",
     icon: <FaRegUser size={20} />,
+    path: "/profile",
   },
   {
-    id: 1,
+    id: 3,
     label: "Logout",
     icon: <FiLogIn size={20} />,
   },

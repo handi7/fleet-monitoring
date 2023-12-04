@@ -22,3 +22,12 @@ export const authLogin = async (data) => {
     return Promise.reject(error);
   }
 };
+
+export const getProfile = async () => {
+  try {
+    const res = await Axios.get("/profile");
+    return res;
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
