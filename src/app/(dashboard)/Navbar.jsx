@@ -44,19 +44,19 @@ function Navbar() {
     }
   };
 
-  const NavItem = ({ id, nav, isSelected }) => (
+  const NavItem = ({ id, nav }) => (
     <button
       className="w-full relative flex justify-center items-center py-3"
       onMouseEnter={() => onNavHover(id, true)}
       onMouseLeave={() => onNavHover(id)}
       onClick={() => onItemClick(nav)}
     >
-      <span className={`${isSelected ? "text-yellow-400" : ""}`}>
+      <span className={`${path?.includes(nav?.path) ? "text-yellow-400" : ""}`}>
         {nav?.icon}
       </span>
       <span
         id={id}
-        className="absolute w-0 left-16 text-sm text-start overflow-hidden duration-500"
+        className="absolute w-0 left-16 text-sm text-start overflow-hidden duration-500 z-50"
       >
         <span className="bg-primary/50 px-2 py-1 rounded-lg">{nav?.label}</span>
       </span>
@@ -73,12 +73,7 @@ function Navbar() {
     <div className="w-full h-full flex flex-col justify-between">
       <div>
         {topNav?.map((nav, i) => (
-          <NavItem
-            key={i}
-            isSelected={path?.includes(nav?.path)}
-            id={`topNav${i}`}
-            nav={nav}
-          />
+          <NavItem key={i} id={`topNav${i}`} nav={nav} />
         ))}
       </div>
       <div>

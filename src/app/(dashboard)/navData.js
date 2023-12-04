@@ -9,19 +9,19 @@ export const topNav = [
     icon: <FaRegMap size={20} />,
     path: "/fleet-monitoring",
   },
-  {
-    id: 2,
-    label: "Label",
-    icon: <PiPackageLight size={20} />,
-  },
+  // {
+  //   id: 2,
+  //   label: "Label",
+  //   icon: <PiPackageLight size={20} />,
+  // },
 ];
 
 export const bottomNav = [
-  {
-    id: 1,
-    label: "Info",
-    icon: <FiInfo size={20} />,
-  },
+  // {
+  //   id: 1,
+  //   label: "Info",
+  //   icon: <FiInfo size={20} />,
+  // },
   {
     id: 2,
     label: "Profile",

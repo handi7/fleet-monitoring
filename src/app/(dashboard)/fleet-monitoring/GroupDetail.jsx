@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import Spinner from "../../../components/Spinner";
-import { GoogleMap, Marker } from "@react-google-maps/api";
+import { GoogleMap, Marker, Polyline } from "@react-google-maps/api";
 import { getMonitoringGroup } from "../../../services/monitoring";
 import InputSearch from "../../../components/input/InputSearch";
 import DataTable from "react-data-table-component";
@@ -143,6 +143,18 @@ function GroupDetail({ id, loading }) {
                 lng: selectedVesel?.destination_geojson[1],
               }}
               onClick={() => onMarkerClick("Destination")}
+            />
+            <Polyline
+              path={[
+                {
+                  lat: selectedVesel?.origin_geojson[0],
+                  lng: selectedVesel?.origin_geojson[1],
+                },
+                {
+                  lat: selectedVesel?.destination_geojson[0],
+                  lng: selectedVesel?.destination_geojson[1],
+                },
+              ]}
             />
           </GoogleMap>
         )}

@@ -1,14 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 
-function AuthLayout() {
+function AuthLayout({ isOpen }) {
+  const ref = useRef();
   const [tab, setTab] = useState(1);
 
   return (
-    <div className="absolute w-72 rounded-md overflow-hidden top-12 right-0">
+    <div
+      ref={ref}
+      className={`absolute w-72 rounded-md overflow-hidden top-12 right-0 duration-500 ${
+        isOpen ? "h-96" : "h-0"
+      }`}
+    >
       <div className="flex justify-end text-slate-800">
         <div className="flex-auto border-b"></div>
         <button

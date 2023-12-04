@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "../globals.css";
-import AuthLayout from "./AuthLayout";
+import Navbar from "./Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,15 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div className="w-screen h-screen flex flex-col">
-          <div className="flex-initial w-full h-14 flex justify-center bg-slate-800">
-            <div className="w-[1200px] h-full flex justify-between items-center">
-              <div>LOGO</div>
-              <div className="relative">
-                <button>Login</button>
-                <AuthLayout />
-              </div>
-            </div>
-          </div>
+          <Navbar />
           <div className="flex-auto">{children}</div>
         </div>
       </body>
