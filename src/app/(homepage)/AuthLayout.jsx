@@ -11,15 +11,15 @@ function AuthLayout({ isOpen }) {
   return (
     <div
       ref={ref}
-      className={`absolute w-72 rounded-md overflow-hidden top-12 right-0 duration-500 ${
+      className={`absolute w-72 rounded-md overflow-hidden top-12 right-2 duration-500 z-50 ${
         isOpen ? "h-96" : "h-0"
       }`}
     >
-      <div className="flex justify-end text-slate-800">
+      <div className="flex justify-end text-white">
         <div className="flex-auto border-b"></div>
         <button
           className={`hover:bg-slate-800 hover:text-white px-5 py-1 border-l border-t border-r rounded-t-md ${
-            tab === 2 ? "bg-primary text-white" : "bg-white/20"
+            tab === 2 ? "bg-primary text-white" : "bg-black/30"
           }`}
           onClick={() => setTab(2)}
         >
@@ -27,7 +27,7 @@ function AuthLayout({ isOpen }) {
         </button>
         <button
           className={`hover:bg-slate-800 hover:text-white px-5 py-1 border-l border-t border-r rounded-t-md ${
-            tab === 1 ? "bg-primary text-white" : "bg-white/20"
+            tab === 1 ? "bg-primary text-white" : "bg-black/30"
           }`}
           onClick={() => setTab(1)}
         >
